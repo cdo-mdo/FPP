@@ -6,10 +6,11 @@ public class Test {
 
 		ClosedCurve[] objects = { new Triangle(4, 5, 6), new Square(3), new Rectangle(3, 7), new Circle(3) };
 		// compute areas
+		StringBuilder buffer = new StringBuilder();;
 		for (ClosedCurve cc : objects) {
-			System.out.println(cc.computeArea());
+			buffer.append("The area of this " + cc.getClass().getSimpleName() + " is " + cc.computeArea() + "\n");
 		}
-
+		System.out.println(buffer.toString());
 	}
 
 }

@@ -7,6 +7,7 @@ public final class Circle extends ClosedCurve {
 		this.radius = radius;
 	}
 
+	@Override
 	public double computeArea() {
 		return (Math.PI * radius * radius);
 	}

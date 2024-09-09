@@ -8,6 +8,7 @@ public final class Square extends ClosedCurve {
 
 	}
 
+	@Override
 	public double computeArea() {
 		return side * side;
 	}

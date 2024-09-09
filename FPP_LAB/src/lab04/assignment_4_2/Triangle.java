@@ -80,6 +80,7 @@ public final class Triangle extends ClosedCurve {
 		assert (height <= base);
 	}
 
+	@Override
 	public double computeArea() {
 		return (0.5 * base * height);
 	}
