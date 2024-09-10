@@ -21,13 +21,13 @@ public class Employee { //implements Comparable<Employee> {
 	/** returns a list of account types in the order in which 
 	 *  accounts are stored in the AccountList
 	 */
-	public MyStringList getNamesOfAccounts(){
-		MyStringList names = new MyStringList();
-		for(int i = 0; i < accounts.size(); ++i){
-			names.add(accounts.get(i).getAcctType().toString().toLowerCase());
-		}
-		return names;
-	}
+	//public MyStringList getNamesOfAccounts(){
+		//MyStringList names = new MyStringList();
+		//for(int i = 0; i < accounts.size(); ++i){
+			//names.add(accounts.get(i).getAcctType().toString().toLowerCase());
+		//}
+		//return names;
+	//}
 	
 	public void createNewSavings(double startBalance){
 		accounts.add(new SavingsAccount(this,startBalance));
