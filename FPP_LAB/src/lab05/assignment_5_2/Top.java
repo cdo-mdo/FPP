@@ -2,28 +2,25 @@ package lab05.assignment_5_2;
 
 public class Top {
 	int t = 1;
-	Middle mid;
-	Middle.Bottom midbot;
+	Middle mid = new Middle();
+	Middle.Bottom midbot = mid.new Bottom();
 	//returns the value in the instance vble of Bottom
 	int readBottom() {
-		//implement
-		return 0;
+		return midbot.b;
 	}
 	class Middle {
 		int m = 2;
 		//returns sum of instance vble in Top and 
 		//instance vble in Bottom
 		int addTopAndBottom() {
-			//implement
-			return 0;
+			return t + midbot.b;
 		}
 		class Bottom {
 			int b = 3;
 			//returns the product of the instance vbles
 			//in all three classes
 			int multiplyAllThree() {
-				//implement
-				return 0;
+				return b * m * t;
 			}
 		}
 	}
