@@ -196,8 +196,10 @@ public class AddressForm extends JFrame {
 		GridBagConstraints gbcZip = new GridBagConstraints();
 		gbcZip.fill = GridBagConstraints.VERTICAL;
 
-		gbcState.gridx = 0;
-		gbcState.gridy = 0;
+		gbcZip.gridx = 0;
+		gbcZip.gridy = 0;
+		gbcZip.anchor = GridBagConstraints.NORTHWEST;
+		gbcZip.insets = new Insets(1, 0, 0, 0);
 		zipPanel.add(labelZip, gbcZip);
 
 		gbcZip.ipadx = 150;
@@ -228,7 +230,7 @@ public class AddressForm extends JFrame {
 				System.out.println(city + ", " + state + " " + zip);
 			}
 		}
-		
+
 		SubmitListener sl = new SubmitListener();
 
 		submitButton = new JButton("Submit");
