@@ -1,4 +1,4 @@
-package lab06.assignment_6_1.gui;
+package lab06.samplecode.gui;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -33,7 +33,7 @@ public class MyFrame2 extends JFrame {
 		mainPanel.add(button);
 		getContentPane().add(mainPanel);
 		// setSize(320, 240);
-		pack();
+		// pack();
 		centerFrameOnDesktop(this);
 
 	}

@@ -89,7 +89,6 @@ public class AddressForm extends JFrame {
 		mainPanel.add(upperSubpanel, BorderLayout.NORTH);
 		mainPanel.add(middleSubpanel, BorderLayout.CENTER);
 		mainPanel.add(lowerSubpanel, BorderLayout.SOUTH);
-
 	}
 
 	private void defineUpperPanel() {
@@ -217,8 +216,6 @@ public class AddressForm extends JFrame {
 		lowerSubpanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 		class SubmitListener implements ActionListener {
-			private int k;
-
 			public void actionPerformed(ActionEvent evt) {
 				String name = fieldName.getText();
 				String street = fieldStreet.getText();

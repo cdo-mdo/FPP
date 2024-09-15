@@ -1,4 +1,4 @@
-package lab06.assignment_6_1.gui;
+package lab06.samplecode.gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -42,7 +42,7 @@ public class UserIO extends JFrame {
 		defineMainPanel();
 		getContentPane().add(mainPanel);
 
-		// pack();
+		pack();
 
 	}
 
@@ -100,6 +100,19 @@ public class UserIO extends JFrame {
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.setBackground(GuiControl.FILLER_COLOR);
 		JButton submitButn = new JButton(SUBMIT);
+
+		class SubmitListener implements ActionListener {
+			private int k;
+
+			public void actionPerformed(ActionEvent evt) {
+				String inputString = upperText.getText();
+				setOutputValue(inputString);
+
+				System.out.println("Got input: " + inputString);
+
+			}
+		}
+
 		SubmitListener sl = new SubmitListener();
 		int y = sl.k;
 		submitButn.addActionListener(sl);
@@ -132,7 +145,16 @@ public class UserIO extends JFrame {
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.setBackground(GuiControl.FILLER_COLOR);
 		JButton clearButn = new JButton(CLEAR);
-		clearButn.addActionListener(new ClearListener());
+
+		ActionListener clearAction = new ActionListener() {
+
+			public void actionPerformed(ActionEvent evt) {
+				setOutputValue("");
+				System.out.println("Clearing output text area.");
+			}
+		};
+
+		clearButn.addActionListener(clearAction);
 		buttonPanel.add(clearButn);
 		lowerSubpanel.add(buttonPanel, BorderLayout.SOUTH);
 
@@ -142,26 +164,26 @@ public class UserIO extends JFrame {
 		lowerText.setText(val);
 	}
 
-	class SubmitListener implements ActionListener {
-		private int k;
+//	class SubmitListener implements ActionListener {
+//		private int k;
+//
+//		public void actionPerformed(ActionEvent evt) {
+//			String inputString = upperText.getText();
+//			setOutputValue(inputString);
+//
+//			System.out.println("Got input: " + inputString);
+//
+//		}
+//	}
 
-		public void actionPerformed(ActionEvent evt) {
-			String inputString = upperText.getText();
-			setOutputValue(inputString);
-
-			System.out.println("Got input: " + inputString);
-
-		}
-	}
-
-	class ClearListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent evt) {
-
-			setOutputValue("");
-			System.out.println("Clearing output text area.");
-		}
-	}
+//	class ClearListener implements ActionListener {
+//
+//		public void actionPerformed(ActionEvent evt) {
+//
+//			setOutputValue("");
+//			System.out.println("Clearing output text area.");
+//		}
+//	}
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

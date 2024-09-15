@@ -1,4 +1,4 @@
-package lab06.assignment_6_1.gui;
+package lab06.samplecode.gui;
 
 import java.awt.Color;
 import java.awt.Component;
