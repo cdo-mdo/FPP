@@ -1,6 +1,7 @@
-package list;
+package lab08.assignment_8_3.employeesort;
 
 import java.util.Comparator;
+import java.util.Date;
 
 public class NameComparator implements Comparator<Employee> {
 
@@ -11,25 +12,20 @@ public class NameComparator implements Comparator<Employee> {
 		Date hireDate2 = e2.getHireDate();
 		int salary1 = e1.getSalary();
 		int salary2 = e2.getSalary();
-		if(name1.compareTo(name2) != 0) {
+		if (name1.compareTo(name2) != 0) {
 			return name1.compareTo(name2);
 		}
-		//now name1 equals name2
-		if(hireDate1.compareTo(hireDate2) != 0) {
+		// now name1 equals name2
+		if (hireDate1.compareTo(hireDate2) != 0) {
 			return hireDate1.compareTo(hireDate2);
 		}
-		//now name1 equals name2 and hireDate1 equals hireDate2
-        if(salary1 < salary2) {
+		// now name1 equals name2 and hireDate1 equals hireDate2
+		if (salary1 < salary2) {
 			return -1;
-		}
-		else if(salary1 > salary2) {
+		} else if (salary1 > salary2) {
 			return 1;
-		}
-		else {
+		} else {
 			return 0;
 		}
-	}	
-}
-
-	
+	}
 }
