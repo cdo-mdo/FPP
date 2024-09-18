@@ -11,16 +11,32 @@ public class NodeQueue {
 	 * Inserts a new node containing s at end of queue
 	 */
 	public void enqueue(String s) {
-		// implement
+		Node newNode = new Node();
+		newNode.data = s;
+		if (tail != null) {
+			tail.next = newNode;
+		}
+		else {
+			// enqueue the first element
+			head = newNode;
+		}
+		tail = newNode;
 	}
 
 	/**
 	 * Removes node from the front of the queue and returns its value if head is n
 	 */
 	public String dequeue() throws QueueException {
-		if (isEmpty())
+		if (isEmpty()) {
 			throw new QueueException("Queue is empty!");
-		return null;
+		}
+		String res = head.data;
+		head = head.next;
+		if (head == null) {
+			// dequeue last item of the queue
+			tail = null;
+		}
+		return res;
 	}
 
 	/**
@@ -30,9 +46,10 @@ public class NodeQueue {
 	 * @throws QueueException
 	 */
 	public String peek() throws QueueException {
-		if (isEmpty())
+		if (isEmpty()) {
 			throw new QueueException("Queue is empty!");
-		return null;
+		}
+		return head.data;
 	}
 
 	public boolean isEmpty() {
@@ -41,8 +58,9 @@ public class NodeQueue {
 
 	@Override
 	public String toString() {
-		if (isEmpty())
+		if (isEmpty()) {
 			return "<empty queue>";
+		}
 		return head.toString();
 	}
 }
