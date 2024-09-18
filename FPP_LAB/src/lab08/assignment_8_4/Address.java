@@ -71,10 +71,15 @@ public class Address {
 
 	}
 	
-	public String toString() {
+	public String toString1() {
 		String res = name + "\n" +
 					 street + "\n" +
 					 city + ", " + state + " " + zip;
+		return res;
+	}
+	
+	public String toString() {
+		String res = String.format("%s\n%s\n%s, %s %s", name, street, city, state, zip);
 		return res;
 	}
 

@@ -20,7 +20,6 @@ public class Main {
 		listOfAddresses.add(new Address("Hal", "14 E. Court", "Fairfield", "IA", "52556"));
 		listOfAddresses.add(new Address("Sally", "410 W. Jefferson", "Fairfield", "IA", "52556"));
 		listOfAddresses.add(new Address("MUM", "1000 N. 4th St", "Fairfield", "IA", "52556"));
-
 	}
 
 	public void printAsUpperCase() {
@@ -29,14 +28,16 @@ public class Main {
 			address -> strs.add(address.toString())	
 		);
 		
-		List<String> upperCaseStrs = Address.toUpper(strs);
+		String res = formatFields(strs);
 		
-		upperCaseStrs.forEach( str -> System.out.println(str));
+		System.out.println(res.toUpperCase());
 	}
 
 	private String formatFields(List<String> list) {
-		// implement
-		return null;
+		StringBuilder buffer = new StringBuilder();
+		list.forEach(str -> buffer.append(str));
+		
+		return buffer.toString();
 	}
 
 }
