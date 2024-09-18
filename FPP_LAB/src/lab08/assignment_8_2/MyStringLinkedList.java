@@ -6,7 +6,7 @@ public class MyStringLinkedList {
 	MyStringLinkedList() {
 		header = new Node(null);
 	}
-	
+
 	public void insert(String data, int pos) {
 		if (data == null) {
 			return;
@@ -18,7 +18,7 @@ public class MyStringLinkedList {
 			addFirst(data);
 			return;
 		}
-		
+
 		int count = 0;
 		Node node = header;
 		while (true) {
@@ -40,16 +40,15 @@ public class MyStringLinkedList {
 		prevNode.next = newNode;
 		newNode.next = node;
 		node.previous = newNode;
-		
+
 		return;
 	}
 
-	
 	public boolean remove(String data) {
 		if (data == null) {
 			return false;
 		}
-		
+
 		Node node = header;
 		while (node.next != null) {
 			if (node.value.equals(data)) {
@@ -62,17 +61,15 @@ public class MyStringLinkedList {
 			// Cannot find node to remove
 			return false;
 		}
-		
-		
+
 		Node prevNode = node.previous;
 		Node nextNode = node.next;
 		prevNode.next = nextNode;
 		nextNode.previous = prevNode;
-		
+
 		return true;
 	}
-	
-	
+
 	// adds to the front of the list
 	public void addFirst(String item) {
 		Node n = new Node(item);
@@ -135,7 +132,7 @@ public class MyStringLinkedList {
 			return true;
 		}
 	}
-	
+
 	public void minSort() {
 		Node index = header.next;
 		while (index != null) {
@@ -144,7 +141,7 @@ public class MyStringLinkedList {
 			index = index.next;
 		}
 	}
-	
+
 	public Node minNode(Node nodeIndex) {
 		Node node = nodeIndex;
 		String minStr = node.value;
@@ -157,10 +154,10 @@ public class MyStringLinkedList {
 			}
 			nextNode = nextNode.next;
 		}
-		
+
 		return res;
 	}
-	
+
 	public void swap(Node n1, Node n2) {
 		String temp = n1.value;
 		n1.value = n2.value;
@@ -213,21 +210,18 @@ public class MyStringLinkedList {
 		System.out.println(list.search("Bob"));
 		list.addLast("Tom");
 		System.out.println(list);
-		
-		
-		String[] strs = {"big", "small", "tall", "short", "round", "square", 
-				"enormous", "tiny","gargantuan", "lilliputian", 
-				"numberless", "none", "vast", "miniscule"};
+
+		String[] strs = { "big", "small", "tall", "short", "round", "square", "enormous", "tiny", "gargantuan",
+				"lilliputian", "numberless", "none", "vast", "miniscule" };
 		var list1 = new MyStringLinkedList();
-		for (String str: strs) {
+		for (String str : strs) {
 			list1.addLast(str);
 		}
 		System.out.println(list1);
-		
+
 		list1.minSort();
-		
+
 		System.out.println(list1);
-		
-		
+
 	}
 }
