@@ -1,4 +1,4 @@
-package prog9_1_startup;
+package lab09.assignment_9_1;
 
 public class MyStringLinkedList {
 	Node header;

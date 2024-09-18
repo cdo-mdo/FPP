@@ -1,4 +1,4 @@
-package prog9_2_startup;
+package lab09.assignment_9_2;
 
 
 import java.io.File;

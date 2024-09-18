@@ -1,3 +1,5 @@
+package lab09.assignment_9_2;
+
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -38,7 +40,7 @@ public class Employee {
 	//implement
 	//public int hashCode(){
 		//implement using technique from the slides
-	}
+
 	public String toString() {
 		String newline = System.getProperty("line.separator");
 		return newline+"EMPLOYEE "+name+newline+

@@ -1,4 +1,4 @@
-package prog9_4_startup;
+package lab09.assignment_9_4;
 
 @SuppressWarnings("serial")
 public class QueueException extends Exception {
