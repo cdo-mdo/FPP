@@ -8,8 +8,29 @@ import java.util.LinkedList;
  */
 public class Merge {
 	public LinkedList<Integer> merge(LinkedList<Integer> list1, LinkedList<Integer> list2) {
-		// implement
-		return null;
+		LinkedList<Integer> res = new LinkedList<>();
+		if (list1.isEmpty() && list2.isEmpty()) {
+			return res;
+		}
+		if (list1.isEmpty()) {
+			res.addFirst(list2.removeFirst());
+		} 
+		else {
+			if (list2.isEmpty()) {
+				res.addFirst(list1.removeFirst());
+			}		 
+			else {
+				if (list1.getFirst().compareTo(list2.getFirst()) < 0) {
+					res.addFirst(list1.removeFirst());
+				}
+				else {
+					res.addFirst(list2.removeFirst());
+				}
+			}
+		}
+		
+		res.addAll(merge(list1, list2));
+		return res;
 	}
 
 	// test your code
@@ -24,9 +45,10 @@ public class Merge {
 		list2.add(9);
 		list2.add(17);
 		Merge m = new Merge();
-		LinkedList list3 = m.merge(list1, list2);
-		if (list3 != null)
+		LinkedList<Integer> list3 = m.merge(list1, list2);
+		if (list3 != null) {
 			System.out.println(list3);
+		}
 
 	}
 }
