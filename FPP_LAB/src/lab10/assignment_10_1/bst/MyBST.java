@@ -17,10 +17,12 @@ public class MyBST {
 	 * Prints the values in the nodes of the tree in sorted order.
 	 */
 	public void printTree() {
-		if (root == null)
+		if (root == null) {
 			System.out.println("Empty tree");
-		else
+		}
+		else {
 			printTree(root);
+		}
 	}
 
 	private void printTree(Node t) {
@@ -36,16 +38,19 @@ public class MyBST {
 	}
 
 	public boolean find(Integer x) {
-		if (x == null)
+		if (x == null) {
 			return false;
+		}
 		return find(x, root);
 	}
 
 	private boolean find(Integer x, Node n) {
-		if (n == null)
+		if (n == null) {
 			return false;
-		if (n != null && n.element.equals(x))
+		}
+		if (n != null && n.element.equals(x)) {
 			return true;
+		}
 		return (x.compareTo(n.element) < 0) ? find(x, n.left) : find(x, n.right);
 		// return find(x,n.left) || find(x,n.right);
 	}
@@ -53,7 +58,8 @@ public class MyBST {
 	public void insert(Integer x) {
 		if (root == null) {
 			root = new Node(x, null, null);
-		} else {
+		} 
+		else {
 			Node n = root;
 			boolean inserted = false;
 			while (!inserted) {
@@ -62,7 +68,8 @@ public class MyBST {
 					if (n.left == null) {
 						n.left = new Node(x, null, null);
 						inserted = true;
-					} else {
+					} 
+					else {
 						n = n.left;
 					}
 				}
@@ -72,7 +79,8 @@ public class MyBST {
 					if (n.right == null) {
 						n.right = new Node(x, null, null);
 						inserted = true;
-					} else {
+					} 
+					else {
 						n = n.right;
 					}
 				}
@@ -85,12 +93,12 @@ public class MyBST {
 	public static void main(String[] args) {
 		MyBST bst = new MyBST();
 		for (int i = 15; i >= 0; --i) {
-			bst.insert(new Integer(2 * i));
-			bst.insert(new Integer(2 * i - 5));
+			bst.insert(Integer.valueOf(2 * i));
+			bst.insert(Integer.valueOf(2 * i - 5));
 		}
 		bst.printTree();
-		System.out.println("Is 24 in the tree? " + bst.find(new Integer(24)));
-		System.out.println("Is 27 in the tree? " + bst.find(new Integer(27)));
+		System.out.println("Is 24 in the tree? " + bst.find(Integer.valueOf(24)));
+		System.out.println("Is 27 in the tree? " + bst.find(Integer.valueOf(27)));
 
 	}
 
@@ -137,7 +145,8 @@ public class MyBST {
 					System.out.print(((Node) node).element);
 					newNodes.add(((Node) node).left);
 					newNodes.add(((Node) node).right);
-				} else {
+				} 
+				else {
 					newNodes.add(null);
 					newNodes.add(null);
 					System.out.print(" ");
@@ -155,17 +164,21 @@ public class MyBST {
 						continue;
 					}
 
-					if (((Node) nodes.get(j)).left != null)
+					if (((Node) nodes.get(j)).left != null) {
 						System.out.print("/");
-					else
+					}
+					else {
 						BTreePrinter.printWhitespaces(1);
+					}
 
 					BTreePrinter.printWhitespaces(i + i - 1);
 
-					if (((Node) nodes.get(j)).right != null)
+					if (((Node) nodes.get(j)).right != null) {
 						System.out.print("\\");
-					else
+					}
+					else {
 						BTreePrinter.printWhitespaces(1);
+					}
 
 					BTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
 				}
@@ -177,21 +190,24 @@ public class MyBST {
 		}
 
 		static void printWhitespaces(int count) {
-			for (int i = 0; i < count; i++)
+			for (int i = 0; i < count; i++) {
 				System.out.print(" ");
+			}
 		}
 
 		static int maxLevel(Node node) {
-			if (node == null)
+			if (node == null) {
 				return 0;
+			}
 
 			return Math.max(BTreePrinter.maxLevel(node.left), BTreePrinter.maxLevel(node.right)) + 1;
 		}
 
 		static boolean isAllElementsNull(List list) {
 			for (Object object : list) {
-				if (object != null)
+				if (object != null) {
 					return false;
+				}
 			}
 
 			return true;
