@@ -12,7 +12,7 @@ public class MyHashtable implements Iterable {
 	}
 	private int tableSize;
 	private int numEntries;
-	private int maxLoadFactor = DEFAULT_LOAD_FACTOR;
+	private int h = DEFAULT_LOAD_FACTOR;
 	// to create a collections framework using sets rather
 	// than lists, use open addressing implementation of
 	// hashtable here
@@ -35,22 +35,63 @@ public class MyHashtable implements Iterable {
 	 * @return true if hash of key is found in keyList, false otherwise
 	 */
 	public boolean containsKey(Object key) {
-		if (key == null)
+		if (key == null) {
 			return false;
+		}
 		int index = hash(key.hashCode());
-		if (table[index] == null)
+		if (table[index] == null) {
 			return false;
+		}
 		for (Iterator it = table[index].iterator(); it.hasNext();) {
 			Entry e = (Entry) it.next();
-			if (e.key.equals(key))
+			if (e.key.equals(key)) {
 				return true;
+			}
 		}
 		return false;
 	}
+	
+	private void rehash() {
+		
+		System.out.println("rehashing ...");
+		int newSize = tableSize * 2;
+		LinkedList<Entry>[] temp = new LinkedList[newSize];
+		tableSize = newSize;
+
+		int count = 0;
+		for (int i = 0; i < table.length; i++) {
+			if (table[i] != null) {
+				Iterator<Entry> it = table[i].iterator();
+				Entry next = null;
+				while (it.hasNext()) {
+					next = (Entry) it.next();
+					Entry newEntry = new Entry(next.key, next.value);
+					int newIndex = hash(newEntry.key.hashCode());
+					if (temp[newIndex] == null) {
+						temp[newIndex] = new LinkedList<>();
+					}
+					temp[newIndex].add(newEntry);
+					++count;
+				}
+			}
+		}
+		
+		table = temp;
+		return;
+		
+	}
 
 	public void put(Object key, Object value) {
-		if (key == null)
+		if (key == null) {
 			return;
+		}
+		if (numEntries / tableSize >= DEFAULT_LOAD_FACTOR) {
+			System.out.println("Table size = " + tableSize);
+			System.out.println("Number of entries " + numEntries);
+			System.out.println("Load factor " + loadFactor());
+			rehash();
+		}
+		
 		int hashcode = key.hashCode();
 		int hash = hash(hashcode);
 		// if key has already been used, update value in the Entry
@@ -93,13 +134,11 @@ public class MyHashtable implements Iterable {
 
 			public boolean hasNext() {
 				return (currentPos < len);
-
 			}
 
 			public Object next() {
 				Entry entry = (Entry) allTogether.get(currentPos++);
 				return entry.key;
-
 			}
 
 			public void remove() {
@@ -135,8 +174,9 @@ public class MyHashtable implements Iterable {
 				value = e.value;
 			}
 		}
-		if (indexTable == -1)
+		if (indexTable == -1) {
 			return null;
+		}
 		else {
 			table[hash].remove(indexTable);
 			--numEntries;
@@ -145,10 +185,12 @@ public class MyHashtable implements Iterable {
 	}
 
 	private Entry getEntry(Object key) {
-		if (key == null)
+		if (key == null) {
 			return null;
-		if (!containsKey(key))
+		}
+		if (!containsKey(key)) {
 			return null;
+		}
 		// get the "big" integer corresponding to the object
 		int hashcode = key.hashCode();
 
@@ -157,8 +199,9 @@ public class MyHashtable implements Iterable {
 
 		// now look for the desired Entry
 		Entry e = null;
-		if (table[hash] == null)
+		if (table[hash] == null) {
 			return null;
+		}
 		Iterator it = table[hash].iterator();
 		while (it.hasNext()) {
 			e = (Entry) it.next();
@@ -170,8 +213,9 @@ public class MyHashtable implements Iterable {
 	}
 
 	public Object get(Object key) {
-		if (key == null)
+		if (key == null) {
 			return null;
+		}
 		Entry e = getEntry(key);
 		return e == null ? null : e.value;
 	}
@@ -188,6 +232,7 @@ public class MyHashtable implements Iterable {
 					sb.append(next + ", ");
 				}
 			}
+			sb.append("\n");
 		}
 		String temp = sb.toString();
 		temp = temp.substring(0, temp.length() - 2);
@@ -223,18 +268,20 @@ public class MyHashtable implements Iterable {
 		for (int i = 0; i < 100; ++i) {
 			h.put(i, i);
 		}
-		System.out.println(h.tableSize);
-		System.out.println(h.numEntries);
-		System.out.println(h.loadFactor());
-		for (int i = 0; i < 50; ++i) {
-			h.remove(2 * i);
-		}
-		for (int i = 0; i < 33; ++i) {
-			h.remove(3 * i);
-		}
-		for (int i = 0; i < 20; ++i) {
-			h.remove(5 * i);
-		}
+		System.out.println("Table size = " +h.tableSize);
+		System.out.println("Number of entries " + h.numEntries);
+		System.out.println("Load factor " + h.loadFactor());
+		
+//		for (int i = 0; i < 50; ++i) {
+//			h.remove(2 * i);
+//		}
+//		for (int i = 0; i < 33; ++i) {
+//			h.remove(3 * i);
+//		}
+//		for (int i = 0; i < 20; ++i) {
+//			h.remove(5 * i);
+//		}
+		
 		System.out.println(h);
 	}
 
