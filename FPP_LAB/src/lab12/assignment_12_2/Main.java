@@ -2,7 +2,7 @@ package lab12.assignment_12_2;
 
 import java.util.Scanner;
 
-import lab04.assignment_4_3.employeeinfo.Employee;
+import lab12.assignment_12_2.employeeinfo.*;
 
 public class Main {
 	private static Scanner sc;
@@ -109,9 +109,10 @@ public class Main {
 			accountTypeName = emps[empIndex].getAccountTypeName(accIndex).toLowerCase();
 			System.out.print("Withdraw amount: ");
 			amount = sc.nextDouble();
-			emps[empIndex].withdraw(accIndex, amount);
-			System.out.printf("@%.2f has been withdrawn from the %s account of %s\n", amount, accountTypeName,
+			if (emps[empIndex].withdraw(accIndex, amount) == true) {
+				System.out.printf("@%.2f has been withdrawn from the %s account of %s\n", amount, accountTypeName,
 					emps[empIndex].getName());
+			}
 			break;
 		}
 		sc.close();

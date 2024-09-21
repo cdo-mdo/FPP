@@ -1,7 +1,6 @@
 package lab12.assignment_12_2;
 
-import lab04.assignment_4_3.employeeinfo.Account;
-import lab04.assignment_4_3.employeeinfo.AccountType;
+import lab12.assignment_12_2.employeeinfo.*;
 
 public class AccountList {
 	private Account[] accounts;
