@@ -57,17 +57,17 @@ public final class Triangle extends ClosedCurve {
 	 *   (z-u) * (z-u) + h*h = y*y
 	 *  </code>
 	 */
-	public Triangle(double s1, double s2, double s3) {
+	public Triangle(double s1, double s2, double s3) throws IllegalClosedCurveException {
+		if (s1 <= 0 || s2 <= 0 || s3 <= 0) {
+			throw new IllegalClosedCurveException("Illegal inputs s1 = " + s1 + " s2 = " + s2 + " s3 = " + s3);
+		}
 		double[] arr = { s1, s2, s3 };
 		Arrays.sort(arr);
 		double x = arr[0];
 		double y = arr[1];
 		double z = arr[2];
 		if (x + y < z) {
-			// TODO: Throw an exception here...
-			System.out.println("Illegal sizes for a triangle: " + s1 + ", " + s2 + ", " + s3);
-			System.out.println("Creating an equilateral triangle with side = " + DEFAULT_SIDE);
-			x = y = z = DEFAULT_SIDE;
+			throw new IllegalTriangleException("Illegal sizes for a triangle: " + s1 + ", " + s2 + ", " + s3);
 		}
 		side1 = x;
 		side2 = y;

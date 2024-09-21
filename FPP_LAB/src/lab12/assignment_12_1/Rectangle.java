@@ -18,7 +18,10 @@ public class Rectangle extends ClosedCurve {
 		return area;
 	}
 
-	Rectangle(double width, double height) {
+	Rectangle(double width, double height) throws IllegalClosedCurveException {
+		if (width <= 0 || height <= 0) {
+			throw new IllegalClosedCurveException("Illegal inputs width = " + width + " height = " + height);
+		}
 		this.width = width;
 		this.height = height;
 	}
