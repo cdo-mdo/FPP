@@ -45,6 +45,7 @@ public class Merge {
 		list2.add(9);
 		list2.add(17);
 		Merge m = new Merge();
+		System.out.println("merge " + list1 + " and " + list2 + " to ");
 		LinkedList<Integer> list3 = m.merge(list1, list2);
 		if (list3 != null) {
 			System.out.println(list3);
