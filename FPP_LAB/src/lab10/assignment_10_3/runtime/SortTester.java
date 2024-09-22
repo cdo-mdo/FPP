@@ -16,7 +16,7 @@ public class SortTester {
 	private final int VALUE_LIMIT = LIMITED;
 
 	private final String PACKAGE = "lab10.assignment_10_3.sortroutines";
-	private final String FILENAME = "C:\\tmp\\sorters_to_be_run.txt";
+	private final String FILENAME = "bin\\lab10\\assignment_10_3\\runtime\\sorters_to_be_run.txt";
 	private final int[] ARRAY_SIZES = { 1000, 10000, 5000, 20000 };
 	private final int NUM_TESTS = 16;
 	private final int ACTUAL_NUM_TESTS = ARRAY_SIZES.length * (NUM_TESTS / ARRAY_SIZES.length);
@@ -34,6 +34,7 @@ public class SortTester {
 		sorters = new Stack<Sorter>();
 
 		try {
+			System.out.println(System.getProperty("user.dir"));
 			System.out.println(FILENAME);
 			BufferedReader reader = new BufferedReader(new FileReader(FILENAME));
 			String line = null;

@@ -1,2 +1,0 @@
-MinSort
-BSTSort
