@@ -1,4 +1,4 @@
-package sample;
+package lab13.assignment_13_3.src.sample;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -16,17 +16,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SimpleL10n extends JFrame {
-	//Internationalized fields
+	// Internationalized fields
 	JButton englishButton;
 	JButton chineseButton;
 	JPanel mainPanel;
 	Locale currentLocale = this.getLocale();
 	ResourceBundle strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
+
 	public SimpleL10n() {
 		setTitle(strings.getString("title"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		centerFrameOnDesktop(this);
-		setSize(240,80);
+		setSize(240, 80);
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		englishButton = new JButton();
@@ -38,25 +39,23 @@ public class SimpleL10n extends JFrame {
 		mainPanel.add(englishButton);
 		mainPanel.add(chineseButton);
 		getContentPane().add(mainPanel);
-		//pack();
-		
+		// pack();
+
 	}
-	
-	
+
 	public void setCurrentLocale(Locale locale) {
 		currentLocale = locale;
 		strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
 		updateDisplay();
 	}
-	
+
 	public void updateDisplay() {
 		chineseButton.setText(strings.getString("Chinese"));
 		englishButton.setText(strings.getString("English"));
 		setTitle(strings.getString("title"));
-		//repaint();
+		// repaint();
 	}
-	
-	
+
 	class ChineseButnListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			setCurrentLocale(Locale.CHINESE);
@@ -64,6 +63,7 @@ public class SimpleL10n extends JFrame {
 			validate();
 		}
 	}
+
 	class EnglishButnListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			setCurrentLocale(Locale.ENGLISH);
@@ -71,19 +71,19 @@ public class SimpleL10n extends JFrame {
 			validate();
 		}
 	}
-	
+
 	public static void centerFrameOnDesktop(Component f) {
-        final int SHIFT_AMOUNT = 0;
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        int height = toolkit.getScreenSize().height;
-        int width  = toolkit.getScreenSize().width;
-        int frameHeight = f.getSize().height;
-        int frameWidth  = f.getSize().width;
-        f.setLocation(((width-frameWidth)/2)-SHIFT_AMOUNT, (height-frameHeight)/3);    
-    }
-	
+		final int SHIFT_AMOUNT = 0;
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		int height = toolkit.getScreenSize().height;
+		int width = toolkit.getScreenSize().width;
+		int frameHeight = f.getSize().height;
+		int frameWidth = f.getSize().width;
+		f.setLocation(((width - frameWidth) / 2) - SHIFT_AMOUNT, (height - frameHeight) / 3);
+	}
+
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable(){
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				SimpleL10n sl = new SimpleL10n();
 				sl.setVisible(true);

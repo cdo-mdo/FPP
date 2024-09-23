@@ -1,4 +1,4 @@
-package lesson13.lab13_1.filesearch;
+package lab13.assignment_13_1;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,6 +13,7 @@ public class Test extends TestCase {
 	private String expectedText = "This is the file you are seeking!";
 	private String setupDirectory = "C:\\testCode";
 	private String targetFile = "seek.txt";
+
 	@Override
 	public void setUp() {
 		File f = new File("C:\\testCode\\level1\\level2\\finalLevel");
@@ -30,18 +31,16 @@ public class Test extends TestCase {
 			pw.write(expectedText);
 			pw.flush();
 			pw.close();
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void testSearchForFile() {
-		
+
 		boolean result = FileSearch.searchForFile(targetFile, setupDirectory);
 		assertTrue(result);
 		assertTrue(expectedText.equals(FileSearch.discoveredText.trim()));
-		
-		
-		
+
 	}
 }
