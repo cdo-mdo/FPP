@@ -39,6 +39,7 @@ public class Test extends TestCase {
 	public void testSearchForFile() {
 
 		boolean result = FileSearch.searchForFile(targetFile, setupDirectory);
+		System.out.println("check result = " + result);
 		assertTrue(result);
 		assertTrue(expectedText.equals(FileSearch.discoveredText.trim()));
 
