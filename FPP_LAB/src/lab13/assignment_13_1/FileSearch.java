@@ -6,21 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * //PSEUDO-CODE 
- * boolean searchForFile(Object file, Object startDir) {
- *     Object[] fileSystemObjects = startDir.getContents(); 
- *     for (Object o: fileSystemObjects) {
- *         //base case 
- *         if (isFile(o) && isSameFile(o,f)) {
- *             return true; 
- *         }
+ * //PSEUDO-CODE boolean searchForFile(Object file, Object startDir) { Object[]
+ * fileSystemObjects = startDir.getContents(); for (Object o: fileSystemObjects)
+ * { //base case if (isFile(o) && isSameFile(o,f)) { return true; }
  * 
- *         if (isDirectory(o)) {
- *             searchForFile(file, o);
- *         } 
- *     } //file not found in startDir
- *     return false; 
- * }
+ * if (isDirectory(o)) { searchForFile(file, o); } } //file not found in
+ * startDir return false; }
  */
 public class FileSearch {
 	static boolean found = false;
@@ -30,24 +21,24 @@ public class FileSearch {
 
 	public static boolean searchForFile(String filename, String startDir) {
 		File fileObject = new File(startDir);
-		
+
 		if (!fileObject.exists()) {
+			// directory to be searched doesn't exist.
 			return false;
 		}
-		
+
 		if (!fileObject.isDirectory()) {
 			if (filename.compareTo(fileObject.getName()) == 0) {
 				System.out.println(fileObject.getAbsolutePath());
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
-		
+
 		boolean found = false;
 		String[] names = fileObject.list();
-		for (String name: names) {
+		for (String name : names) {
 			File fObj = new File(startDir + File.separator + name);
 			if (fObj.exists()) {
 				if (fObj.isFile()) {
@@ -55,15 +46,14 @@ public class FileSearch {
 						System.out.println(fileObject.getAbsolutePath());
 						found = true;
 					}
-				}
-				else {
+				} else {
 					if (searchForFile(filename, startDir + File.separator + name) == true) {
 						found = true;
 					}
 				}
 			}
 		}
-		
+
 		return found;
 	}
 
