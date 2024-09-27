@@ -31,7 +31,6 @@ import javax.swing.border.Border;
 public class AddressForm extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-//	public static int SCREEN_WIDTH = 580;
 	public static int SCREEN_WIDTH = 800;
 	public static int SCREEN_HEIGHT = 225;
 
@@ -65,9 +64,10 @@ public class AddressForm extends JFrame {
 
 	private JPanel subPanel3;
 	private JLabel labelResult;
+	private String textResult;
 
 	private JPanel subPanel4;
-	private JComboBox selectLanguage;
+	private JComboBox<String> selectLanguage;
 	private JButton searchButton;
 	private JButton saveButton;
 	private JButton clearButton;
@@ -141,15 +141,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		idPanel.add(labelID, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		idPanel.add(fieldID, gbc2);
 
 		subPanel1.add(idPanel);
@@ -165,15 +162,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		firstNamePanel.add(labelFirstName, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
 		firstNamePanel.add(fieldFirstName, gbc2);
 
 		subPanel1.add(firstNamePanel);
@@ -189,15 +183,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		lastNamePanel.add(labelLastName, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		lastNamePanel.add(fieldLastName, gbc2);
 
 		subPanel1.add(lastNamePanel);
@@ -213,15 +204,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		ssnPanel.add(labelSSN, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		ssnPanel.add(fieldSSN, gbc2);
 
 		subPanel1.add(ssnPanel);
@@ -248,15 +236,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		streetPanel.add(labelStreet, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		streetPanel.add(fieldStreet, gbc2);
 
 		subPanel2.add(streetPanel);
@@ -272,15 +257,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		cityPanel.add(labelCity, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		cityPanel.add(fieldCity, gbc2);
 
 		subPanel2.add(cityPanel);
@@ -296,15 +278,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		statePanel.add(labelState, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		statePanel.add(fieldState, gbc2);
 
 		subPanel2.add(statePanel);
@@ -320,15 +299,12 @@ public class AddressForm extends JFrame {
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.NORTHWEST;
-		gbc1.gridx = 0;
-		gbc1.gridy = 0;
+		gbc1.gridx = 0;	gbc1.gridy = 0;
 		zipPanel.add(labelZip, gbc1);
 
 		GridBagConstraints gbc2 = new GridBagConstraints();
-		gbc2.gridx = 0;
-		gbc2.gridy = 1;
-		gbc2.ipadx = 150;
-		gbc2.ipady = 0;
+		gbc2.gridx = 0;	gbc2.gridy = 1;
+		gbc2.ipadx = 150; gbc2.ipady = 0;
 		zipPanel.add(fieldZip, gbc2);
 
 		subPanel2.add(zipPanel);
@@ -336,22 +312,17 @@ public class AddressForm extends JFrame {
 
 	private void definePanel3() {
 		subPanel3 = new JPanel();
-//		subPanel3.setBackground(Color.WHITE);
 		
-		Border blackline = BorderFactory.createLineBorder(Color.blue.darker());
-		subPanel3.setBorder(blackline);
+		Border blueline = BorderFactory.createLineBorder(Color.blue.darker());
+		subPanel3.setBorder(blueline);
 
 		subPanel3.setLayout(new GridLayout(1, 0));
 		GridBagConstraints gbc1 = new GridBagConstraints();
-//		gbc1.anchor = GridBagConstraints.NORTHWEST;
 		gbc1.gridx = 0;	gbc1.gridy = 10;
-//		gbc1.ipadx = 300; gbc1.ipady = 0;
 		gbc1.insets = new Insets(10, 100, 10, 10);
 
 		labelResult = new JLabel("");
 		labelResult.setForeground(Color.red.darker());
-//		Border blueline = BorderFactory.createLineBorder(Color.blue);
-//		labelResult.setBorder(blueline);
 
 		subPanel3.add(labelResult, gbc1);
 	}
@@ -377,40 +348,55 @@ public class AddressForm extends JFrame {
 		    {
 		        if (e.getSource() == selectLanguage) {
 		        	if ("English".equals(selectLanguage.getSelectedItem())) {
-		        		System.out.println(selectLanguage.getSelectedItem());
 		        		currentLocale = Locale.ENGLISH;
 		        		strings = ResourceBundle.getBundle("strings", currentLocale);
+		        		updateDisplay();
 		        	}
+		        	
 		        	else if ("French".equals(selectLanguage.getSelectedItem())) {
-		        		System.out.println(selectLanguage.getSelectedItem());
 		        		currentLocale = Locale.FRENCH;
 		        		strings = ResourceBundle.getBundle("strings", currentLocale);
-//		        		ResourceBundle strings = ResourceBundle.getBundle("strings_fr", currentLocale);
+		        		strings = ResourceBundle.getBundle("strings_fr", currentLocale);
+		        		updateDisplay();
 		        	}
 		        	else if ("Chinese".equals(selectLanguage.getSelectedItem())) {
-		        		System.out.println(selectLanguage.getSelectedItem());
 		        		currentLocale = Locale.CHINESE;
 		        		strings = ResourceBundle.getBundle("strings", currentLocale);
-//		        		ResourceBundle strings = ResourceBundle.getBundle("strings_zh", currentLocale);
+		        		strings = ResourceBundle.getBundle("strings_zh", currentLocale);
+		        		updateDisplay();
 		        	}
 		        	else {
 		        		currentLocale = Locale.ENGLISH;
 		        		strings = ResourceBundle.getBundle("strings", currentLocale);
+		        		updateDisplay();
 		        	}
 		        }
 		    }
 		}
 
-		
-		
 		// array of string containing cities
         String languages[] = { "English", "French", "Chinese"};
  
         ChooseLanguageListener sl = new ChooseLanguageListener();
-        selectLanguage = new JComboBox(languages);
+        selectLanguage = new JComboBox<>(languages);
         selectLanguage.addItemListener(sl);
         
         subPanel4.add(selectLanguage);
+	}
+	
+	private void updateDisplay() {
+		setTitle(strings.getString("title"));
+        labelID.setText(strings.getString("id"));
+        labelFirstName.setText(strings.getString("firstname"));
+        labelLastName.setText(strings.getString("lastname"));
+        labelSSN.setText(strings.getString("ssn"));
+        labelStreet.setText(strings.getString("street"));
+        labelCity.setText(strings.getString("city"));
+        labelState.setText(strings.getString("state"));
+        labelZip.setText(strings.getString("zip"));
+        searchButton.setText(strings.getString("search"));
+        saveButton.setText(strings.getString("save"));
+        clearButton.setText(strings.getString("clear"));
 	}
 	
 	private void addButtonSearch() {

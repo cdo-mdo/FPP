@@ -37,6 +37,15 @@ public class Convert {
 		System.out.println("save -> "  + ", " + Integer.toHexString((int) '节') + ", " + Integer.toHexString((int) '省'));
 		
 		System.out.println("clear -> "  + ", " + Integer.toHexString((int) '清') + ", " + Integer.toHexString((int) '除'));
+		
+		
+		
+		System.out.println("output1 No ID -> "  + ", " + Integer.toHexString((int) '没' +
+										  ", " + Integer.toHexString((int) '有' +
+										  ", " + Integer.toHexString((int) '身' +
+										  ", " + Integer.toHexString((int) '份' +
+										  ", " + Integer.toHexString((int) '证');
+
 	}
 	
 	
