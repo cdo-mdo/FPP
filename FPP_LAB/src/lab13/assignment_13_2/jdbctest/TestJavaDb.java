@@ -19,12 +19,14 @@ public class TestJavaDb {
 
 	Connection con;
 	Statement stmt;
-	String dburl = "jdbc:derby://localhost:1527/FPP_DB;create=true";
+//	String dburl = "jdbc:derby://localhost:1527/FPP_DB;create=true";
+	String dburl = "jdbc:mysql://localhost:3306/FPPDB";
 	String insertStmt = "";
 	String selectStmt = "";
 	String ssn = "";
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
 		TestJavaDb demo = new TestJavaDb();
 
 		demo.insertExample();
@@ -44,7 +46,7 @@ public class TestJavaDb {
 
 		// keep connection open throughout demo
 		try {
-			con = DriverManager.getConnection(dburl, "app", "app");
+			con = DriverManager.getConnection(dburl, "app", "password");
 			System.out.println("Got connection...");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

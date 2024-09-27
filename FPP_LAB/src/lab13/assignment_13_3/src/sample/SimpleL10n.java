@@ -21,7 +21,8 @@ public class SimpleL10n extends JFrame {
 	JButton chineseButton;
 	JPanel mainPanel;
 	Locale currentLocale = this.getLocale();
-	ResourceBundle strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
+	ResourceBundle strings = ResourceBundle.getBundle("strings", currentLocale);
+//	ResourceBundle strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
 
 	public SimpleL10n() {
 		setTitle(strings.getString("title"));
@@ -83,6 +84,7 @@ public class SimpleL10n extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				SimpleL10n sl = new SimpleL10n();
