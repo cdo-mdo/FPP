@@ -46,7 +46,8 @@ public class SimpleL10n extends JFrame {
 
 	public void setCurrentLocale(Locale locale) {
 		currentLocale = locale;
-		strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
+//		strings = ResourceBundle.getBundle("sample.resources.strings", currentLocale);
+		strings = ResourceBundle.getBundle("strings", currentLocale);
 		updateDisplay();
 	}
 
